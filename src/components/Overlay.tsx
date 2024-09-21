@@ -159,6 +159,7 @@ export default class JoyrideOverlay extends React.Component<OverlayProps, State>
   }
 
   handleMouseMove = (event: MouseEvent) => {
+    const { onClickSpotlight, spotlightClicks } = this.props;
     const { mouseOverSpotlight } = this.state;
     const { height, left, position, top, width } = this.spotlightStyles;
 
@@ -168,7 +169,11 @@ export default class JoyrideOverlay extends React.Component<OverlayProps, State>
     const inSpotlightWidth = offsetX >= left && offsetX <= left + width;
     const inSpotlight = inSpotlightWidth && inSpotlightHeight;
 
-    if (inSpotlight !== mouseOverSpotlight) {
+    if (onClickSpotlight) {
+      if (spotlightClicks && inSpotlight) {
+        onClickSpotlight();
+      }
+    } else if (inSpotlight !== mouseOverSpotlight) {
       this.updateState({ mouseOverSpotlight: inSpotlight });
     }
   };

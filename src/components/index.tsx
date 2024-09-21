@@ -334,6 +334,7 @@ class Joyride extends React.Component<Props, State> {
       continuous = false,
       debug = false,
       nonce,
+      onClickSpotlight,
       scrollToFirstStep = false,
       steps,
     } = this.props;
@@ -365,6 +366,7 @@ class Joyride extends React.Component<Props, State> {
             debug={debug}
             lifecycle={lifecycle}
             onClickOverlay={this.handleClickOverlay}
+            onClickSpotlight={onClickSpotlight}
           />
         </Portal>
       );

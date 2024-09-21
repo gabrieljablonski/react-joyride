@@ -146,6 +146,7 @@ export type OverlayProps = Simplify<
     debug: boolean;
     lifecycle: Lifecycle;
     onClickOverlay: () => void;
+    onClickSpotlight?: () => void;
   }
 >;
 
@@ -174,6 +175,7 @@ export type Props = Simplify<
      * A nonce value for inline styles (Content Security Policy - CSP)
      */
     nonce?: string;
+    onClickSpotlight?: () => void;
     /**
      * Run/stop the tour.
      * @default true
